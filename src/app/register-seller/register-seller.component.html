@@ -1,0 +1,48 @@
+<section class="register-seller">
+  <div></div>
+  <div class="register-seller__form-section">
+    <div class="register-seller__form-card">
+      <h2>Crear cuenta vendedor</h2>
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit(registerForm)"
+      >
+        <div class="register-seller__form">
+          <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput name="name" formControlName="name" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Distrito</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let district of districts" [value]="district">
+                {{district}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput name="email" formControlName="email" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Contraseña</mat-label>
+            <input
+              matInput
+              type="password"
+              name="password"
+              formControlName="password"
+            />
+          </mat-form-field>
+        </div>
+        <div class="register-seller__form-actions">
+          <button type="button" mat-button (click)="onCancelClick()">
+            Cancelar
+          </button>
+          <button type="submit" mat-raised-button color="primary">
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

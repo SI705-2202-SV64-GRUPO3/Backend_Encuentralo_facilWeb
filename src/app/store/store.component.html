@@ -1,0 +1,35 @@
+<div class="store">
+  <div class="store__sidebar">
+    <ul class="store__categories">
+      <li class="store__category-item" *ngFor="let category of categories">
+        <a class="store__category-link" (click)="onLinkClick(category.id)">{{
+          category.name
+        }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="store__products">
+    <div class="store__products-list">
+      <app-product-card
+        *ngFor="let product of products"
+        [product]="product"
+        (click)="onProductClick(product)"
+      >
+      </app-product-card>
+    </div>
+  </div>
+  <div class="store__cart">
+    <h3 class="store__cart-title">Carrito de compra</h3>
+    <div class="store__cart-list">
+      <div class="store__cart-item" *ngFor="let item of cartItems">
+        <p>{{ item.quantity }} x {{ item.name }}</p>
+        <button mat-icon-button color="warn" (click)="onDeleteItem(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="goToCompare()">
+      Finalizar compra
+    </button>
+  </div>
+</div>

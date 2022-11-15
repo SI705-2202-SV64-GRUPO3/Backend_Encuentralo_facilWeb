@@ -1,0 +1,15 @@
+<div class="store-comparation">
+  <h2>Compare precios</h2>
+  <div class="store-comparation__list">
+    <mat-card class="store-comparation__card" *ngFor="let store of stores" (click)="selectStore(store.id)">
+      <div class="store-comparation__card-image-container">
+        <img class="store-comparation__card-image" src="{{store.logo}}" alt="">
+      </div>
+      <div>
+        <h3>{{store.name}}</h3>
+        <p>{{store.address}}</p>
+        <p>Total S/. {{store.total}}</p>
+      </div>
+    </mat-card>
+  </div>
+</div>

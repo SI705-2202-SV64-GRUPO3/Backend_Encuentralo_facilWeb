@@ -1,0 +1,16 @@
+.edit-customer {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 1rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
