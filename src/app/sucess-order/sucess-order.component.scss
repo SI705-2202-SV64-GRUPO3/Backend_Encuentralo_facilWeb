@@ -1,0 +1,17 @@
+.success {
+  height: 100%;
+  display: grid;
+  place-items: center;
+
+  &__modal {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+  }
+
+  &__modal-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+}
