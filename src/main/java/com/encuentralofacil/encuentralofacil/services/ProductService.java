@@ -16,7 +16,11 @@ public class ProductService {
         return this.productRepository.getCommonProductsInStoresByDistrict(district);
     }
 
-    public List<Product> getAllProducts() {
-        return this.productRepository.findAll();
+    public List<Product> getAllProducts(String categoryId) {
+        if (categoryId == null) {
+            return this.productRepository.findAll();
+        }
+
+        return this.productRepository.findByCategory(categoryId);
     }
 }
