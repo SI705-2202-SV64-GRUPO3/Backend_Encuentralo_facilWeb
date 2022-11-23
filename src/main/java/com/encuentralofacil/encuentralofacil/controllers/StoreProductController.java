@@ -1,5 +1,8 @@
 package com.encuentralofacil.encuentralofacil.controllers;
 
+import com.encuentralofacil.encuentralofacil.entities.CartItem;
+import com.encuentralofacil.encuentralofacil.entities.ProductsComparisonBody;
+import com.encuentralofacil.encuentralofacil.entities.StoreOrderBudget;
 import com.encuentralofacil.encuentralofacil.entities.StoreProduct;
 import com.encuentralofacil.encuentralofacil.services.StoreProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RequestMapping("/stores-products")
@@ -58,5 +62,19 @@ public class StoreProductController {
         }
 
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("comparison")
+    public ResponseEntity getProductsComparisonByStores(@RequestBody ProductsComparisonBody body) {
+        List<StoreOrderBudget> budgets;
+
+        try {
+            budgets = this.storeProductService.getProductsComparison(body.getCartItems(), body.getDistrict());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return ResponseEntity.ok(budgets);
     }
 }

@@ -26,9 +26,11 @@ public class ProductController {
     }
 
     @GetMapping("catalogue")
-    public ResponseEntity getMatchingProducts(@RequestParam String district) {
-        List<Product> products = this.productService.getMatchingProducts(district);
-
+    public ResponseEntity getMatchingProducts(
+            @RequestParam(name = "district", required = true) String district,
+            @RequestParam(name = "category", required = false) String categoryId
+    ) {
+        List<Product> products = this.productService.getMatchingProducts(district, categoryId);
         return ResponseEntity.ok(products);
     }
 }
