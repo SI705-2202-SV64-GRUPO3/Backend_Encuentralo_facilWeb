@@ -17,4 +17,6 @@ public class OrderItem {
     private float purchasePrice;
     @Column
     private int quantity;
+    @Column(name = "order_id")
+    private Long orderId;
 }
