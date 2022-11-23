@@ -12,8 +12,8 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "client_id")
+    private Long clientId;
     @Column(name = "purchase_date")
     private Date purchaseDate;
 }
