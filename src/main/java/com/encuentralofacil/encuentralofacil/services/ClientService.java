@@ -30,7 +30,6 @@ public class ClientService {
         Client client = clientFound.get();
         if (!client.getPassword().equals(password)) throw new Exception("invalid credentials");
 
-        client.setPassword("");
         return client;
     }
 }

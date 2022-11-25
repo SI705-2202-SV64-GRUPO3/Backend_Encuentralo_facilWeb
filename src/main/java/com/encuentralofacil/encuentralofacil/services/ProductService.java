@@ -30,7 +30,6 @@ public class ProductService {
         });
 
         List<Product> allProducts = this.productRepository.findInStoreIds(storeIds);
-        System.out.println(allProducts);
 
         Map<Long, Integer> productMapCount  = new HashMap<>();
         allProducts.stream().forEach((product -> {
