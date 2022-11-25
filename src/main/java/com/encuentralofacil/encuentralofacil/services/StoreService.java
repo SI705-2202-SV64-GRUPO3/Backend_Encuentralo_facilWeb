@@ -33,7 +33,6 @@ public class StoreService {
         store = storeFound.get();
         if (!store.getPassword().equals(password)) throw new Exception("invalid credentials");
 
-        store.setPassword("");
         return store;
     }
 }
