@@ -1,9 +1,6 @@
 package com.encuentralofacil.encuentralofacil.controllers;
 
-import com.encuentralofacil.encuentralofacil.entities.CartItem;
-import com.encuentralofacil.encuentralofacil.entities.ProductsComparisonBody;
-import com.encuentralofacil.encuentralofacil.entities.StoreOrderBudget;
-import com.encuentralofacil.encuentralofacil.entities.StoreProduct;
+import com.encuentralofacil.encuentralofacil.entities.*;
 import com.encuentralofacil.encuentralofacil.services.StoreProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +20,7 @@ public class StoreProductController {
 
     @GetMapping("")
     public ResponseEntity listStoreProducts(@RequestParam(name = "storeId", required = true) Long storeId) {
-        List<StoreProduct> storeProducts;
+        List<StoreProductWithProductDetails> storeProducts;
 
         try {
             storeProducts = this.storeProductService.getAllStoreProductsByStore(storeId);
